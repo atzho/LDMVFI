@@ -205,10 +205,10 @@ class Sampler(Dataset):
 
 class BVI_Vimeo_triplet(Dataset):
     def __init__(self, db_dir, crop_sz=[256,256], p_datasets=None, iter=False, samples_per_epoch=1000):
-        vimeo90k_train = Vimeo90k_triplet(join(db_dir, 'vimeo_septuplet'), train=True,  crop_sz=crop_sz)
+        #vimeo90k_train = Vimeo90k_triplet(join(db_dir, 'vimeo_septuplet'), train=True,  crop_sz=crop_sz)
         bvidvc_train = BVIDVC_triplet(join(db_dir, 'bvidvc'), crop_sz=crop_sz)
 
-        self.datasets = [vimeo90k_train, bvidvc_train]
+        self.datasets = [bvidvc_train]#[vimeo90k_train, bvidvc_train]
         self.len_datasets = np.array([len(dataset) for dataset in self.datasets])
         self.p_datasets = p_datasets
         self.iter = iter

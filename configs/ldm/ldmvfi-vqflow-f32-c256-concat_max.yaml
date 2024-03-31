@@ -69,17 +69,15 @@ data:
     train:
       target: ldm.data.bvi_vimeo.BVI_Vimeo_triplet
       params:
-        db_dir: C:/data_tmp/
+        db_dir: ../data/
         crop_sz: [256,256]
         iter: True
     validation:
-      target: ldm.data.bvi_vimeo.Vimeo90k_triplet
+      target: ldm.data.bvi_vimeo.BVI_Vimeo_triplet
       params:
-        db_dir: C:/data_tmp/vimeo_septuplet/
-        train: False
+        db_dir: ../data/
         crop_sz: [256,256]
-        augment_s: False
-        augment_t: False
+        iter: True
 
 
 lightning:
