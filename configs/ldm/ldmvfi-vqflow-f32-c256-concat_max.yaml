@@ -39,7 +39,7 @@ model:
     first_stage_config:
       target: ldm.models.autoencoder.VQFlowNetInterface
       params:
-        ckpt_path: null # must specify pre-trained autoencoding model ckpt to train the denoising UNet
+        ckpt_path: ckpts/ae_1epoch.ckpt # must specify pre-trained autoencoding model ckpt to train the denoising UNet
         embed_dim: 3
         n_embed: 8192
         ddconfig:
@@ -63,7 +63,7 @@ model:
 data:
   target: main.DataModuleFromConfig
   params:
-    batch_size: 64
+    batch_size: 16
     num_workers: 0
     wrap: false
     train:
@@ -93,4 +93,4 @@ lightning:
 
   trainer:
     benchmark: True
-    max_epochs: -1
+    max_epochs: 3
